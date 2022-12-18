@@ -96,6 +96,8 @@ GEM
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -206,6 +208,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    valvat (1.2.1)
+      rexml (>= 3.2, < 4.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -231,6 +235,7 @@ DEPENDENCIES
   bootstrap
   capybara
   debug
+  font-awesome-sass (~> 6.2.1)
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -242,6 +247,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  valvat
   web-console
   webdrivers
 

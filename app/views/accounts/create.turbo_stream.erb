@@ -1,0 +1,15 @@
+<%= turbo_stream_flash_message %>
+
+<% if @account.errors.empty? %>
+  <%= turbo_stream.update 'main_container' do %>
+    <div class="row g-3">
+      <div class="col-12">
+        <h1>Account has been created.</h1>
+      </div>
+      <div class="col-12">
+        <%= link_to 'Return to Index', accounts_path, class: 'btn btn-primary' %>
+        <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn btn-warning' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,2 +1,41 @@
-<h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
+<%= turbo_frame_tag 'main_container' do %>
+  <div class="row g-3">
+    <div class="col-12">
+      <h1>Account with VAT: <%= @account.vat %></h1>
+    </div>
+    <div class="col-12">
+      <div class="row g-3 my-3">
+        <div class="col-8 form-floating">
+          <%= text_field :account, :name, class: 'form-control', placeholder: 'Name', value: @account.name, disabled: true %>
+          <%= label :account, :name, 'Name' %>
+        </div>
+        <div class="col-4 form-floating">
+          <%= text_field :account, :zipcode, class: 'form-control', placeholder: 'Zipcode', value: @account.zipcode, disabled: true %>
+          <%= label :account, :zipcode, 'Zipcode' %>
+        </div>
+      </div>
+      <div class="row g-3 my-3">
+        <div class="col-8 form-floating">
+          <%= text_field :account, :address, class: 'form-control', placeholder: 'Address', value: @account.address, disabled: true %>
+          <%= label :account, :address, 'Address' %>
+        </div>
+        <div class="col-4 form-floating">
+          <%= text_field :account, :city, class: 'form-control', placeholder: 'City / Area', value: @account.city, disabled: true %>
+          <%= label :account, :city, 'City / Area' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row g-3">
+        <div class="col">
+          <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn btn-success' %>
+          <%= link_to 'Index', root_path, class: 'btn btn-secondary' %>
+        </div>
+        <hr class="hr" />
+        <div class="col">
+          <%= button_to 'Delete Account', account_path(@account), method: :delete, data: { turbo_confirm: 'Are you sure;' }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

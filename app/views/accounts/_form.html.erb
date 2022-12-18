@@ -1,0 +1,48 @@
+<%= form_with model: obj, class:'container-flex', data: { controller: 'vat-search' } do |f| %>
+  <div class="row g-3 my-3 align-items-center">
+    <div class="col-3 form-floating">
+      <%= f.text_field :vat, class: 'form-control', placeholder: 'VAT Number', data: {vat_search_target: 'vatField', action: 'keyup->vat-search#count' } %>
+      <%= f.label :vat, 'GR VAT Number (9 digits)' %>
+      <small class="text-muted" data-vat-search-target="textMuted"></small>
+    </div>
+    <div class="col">
+      <%= link_to 'Auto-fill', '#', class: 'btn btn-secondary', data: {vat_search_target: 'queryBtn', action: 'vat-search#query'} %>
+    </div>
+  </div>
+  <%= turbo_frame_tag 'account_form_fields' do %>
+    <div class="row g-3 my-3">
+      <div class="col-8 form-floating">
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Name', hint: false %>
+        <%= f.label :name, 'Name' %>
+      </div>
+      <div class="col-4 form-floating">
+        <%= f.text_field :zipcode, class: 'form-control', placeholder: 'Zipcode' %>
+        <%= f.label :zipcode, 'Zipcode' %>
+      </div>
+    </div>
+    <div class="row g-3 my-3">
+      <div class="col-8 form-floating">
+        <%= f.text_field :address, class: 'form-control', placeholder: 'Address' %>
+        <%= f.label :address, 'Address' %>
+      </div>
+      <div class="col-4 form-floating">
+        <%= f.text_field :city, class: 'form-control', placeholder: 'City / Area' %>
+        <%= f.label :city, 'City / Area' %>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col">
+        <%= f.submit class: 'btn btn-primary' %>
+        <%= link_to 'Index', root_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<% if !@account.new_record? %>
+  <div class="row">
+    <hr class="hr" />
+    <div class="col-auto">
+      <%= button_to 'Delete Account', account_path(@account), method: :delete, data: { turbo_confirm: 'Are you sure;' }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+<% end %>

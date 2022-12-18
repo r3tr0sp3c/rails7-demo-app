@@ -1,0 +1,18 @@
+<%= turbo_stream_flash_message %>
+
+<%= turbo_stream.replace 'account_name' do %>
+  <%= text_field :account, :name, class: 'form-control', placeholder: 'Name', value: @name %>
+<% end %>
+
+<%= turbo_stream.replace 'account_address' do %>
+  <%= text_field :account, :address, class: 'form-control', placeholder: 'Address', value: @address %>
+<% end %>
+
+<%= turbo_stream.replace 'account_city' do %>
+  <%= text_field :account, :city, class: 'form-control', placeholder: 'City / Area', value: @area %>
+<% end %>
+
+<%= turbo_stream.replace 'account_zipcode' do %>
+  <%= text_field :account, :zipcode, class: 'form-control', placeholder: 'Zipcode', value: @zipcode %>
+<% end %>
+

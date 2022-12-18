@@ -1,2 +1,14 @@
-<h1>Accounts#new</h1>
-<p>Find me in app/views/accounts/new.html.erb</p>
+<%= turbo_frame_tag 'main_container' do %>
+  <div class="row g-3">
+    <div class="col-12">
+      <h1>New Account Form</h1>
+    </div>
+    <div class="col-12">
+      <%= render 'form_notifications', obj: @account %>
+    </div>
+
+    <div class="col-12">
+      <%= render 'form', obj: @account %>
+    </div>
+  </div>
+<% end %>

@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "accounts#index"
+
+  resources :accounts do
+    member do
+      get :vat_search
+    end
+  end
 end

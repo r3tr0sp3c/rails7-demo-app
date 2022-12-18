@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wrapp</title>
+    <title>Wrapp Demo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +11,30 @@
   </head>
 
   <body>
-    <%= render 'layouts/main_nav' %>
-    <%= yield %>
+    <div class="container-fluid">
+
+      <div class="row g-5">
+
+        <div class="col-12 bg-light">
+          <%= render 'layouts/main_nav' %>
+        </div>
+
+        <div class="col-12">
+          <div class="container">
+
+            <div class="col-12" id="flash" data-controller="notifications" >
+              <%= render 'layouts/notifications' %>
+            </div>
+
+            <%= yield %>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
   </body>
+
 </html>

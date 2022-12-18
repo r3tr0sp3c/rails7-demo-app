@@ -1,0 +1,14 @@
+<% flash.each do |type, msg| %>
+  <% if type == 'notice' %>
+    <div class="alert alert-success" role="alert" data-action = "click->notifications#dismiss">
+      <%= msg %>
+    </div>
+  <% end %>
+  <% if type == 'alert' %>
+    <div class="alert alert-danger" role="alert" data-action = "click->notifications#dismiss">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+

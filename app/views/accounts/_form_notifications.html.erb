@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">There were some issues</h4>
+    <p>Please check the form for the following issues</p>
+    <hr>
+    <% obj.errors.full_messages.each_with_index do |msg, index| %>
+      <p class="mb-0"><%= "#{index + 1}. #{msg}" %></p>
+    <% end %>
+  </div>
+<% end %>
