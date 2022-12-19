@@ -1,17 +1,19 @@
 class AccountsController < ApplicationController
+
+  before_action :load_account_instance, only: [:show, :edit, :update, :destroy]
   def index
   end
 
   def show
-    @account = Account.where(id: params[:id])[0]
+    # @account = Account.where(id: params[:id])[0]
   end
 
   def edit
-    @account = Account.where(id: params[:id])[0]
+    # @account = Account.where(id: params[:id])[0]
   end
 
   def update
-    @account = Account.where(id: params[:id])[0]
+    # @account = Account.where(id: params[:id])[0]
 
     if @account.update(permitted_params)
       respond_to do |format|
@@ -39,13 +41,12 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    @account = Account.where(id: params[:id])[0]
+    # @account = Account.where(id: params[:id])[0]
 
     respond_to do |format|
       if @account.destroy
         format.turbo_stream do
           flash.now[:notice] = 'Account has been deleted succesfully'
-          redirect_to root_path
         end
       else
         format.turbo_stream { flash.now[:alert] = 'Account is not deleted' }
@@ -82,5 +83,14 @@ class AccountsController < ApplicationController
   private
   def permitted_params
     params.require(:account).permit(:vat, :name, :city, :zipcode, :address)
+  end
+
+  def load_account_instance
+    @account = Account.where(id: params[:id])[0]
+    if @account.nil?
+      redirect_to root_path, alert: 'This account doesn\'t exist.'
+    else
+      @account
+    end
   end
 end
