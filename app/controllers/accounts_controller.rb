@@ -5,15 +5,12 @@ class AccountsController < ApplicationController
   end
 
   def show
-    # @account = Account.where(id: params[:id])[0]
   end
 
   def edit
-    # @account = Account.where(id: params[:id])[0]
   end
 
   def update
-    # @account = Account.where(id: params[:id])[0]
 
     if @account.update(permitted_params)
       respond_to do |format|
@@ -41,8 +38,6 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    # @account = Account.where(id: params[:id])[0]
-
     respond_to do |format|
       if @account.destroy
         format.turbo_stream do
